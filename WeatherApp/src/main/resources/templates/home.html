@@ -63,6 +63,21 @@
             background-color: #999;
             border-radius: 10px;
         }
+
+        .search-input {
+            /*display: inline-block;*/
+            min-width: 10px;
+            padding: 3px 7px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+            vertical-align: baseline;
+            white-space: nowrap;
+            text-align: center;
+            background-color: #999;
+            border-radius: 10px;
+        }
     </style>
 </header>
 
@@ -70,7 +85,7 @@
 <div style="width: 500px; margin: auto;">
     <div style="width: 250px; margin: auto;">
         <form id="search-form" th:action="@{/home/search}" method="post">
-            <input type="text" name="cityName" placeholder="City name"/>
+            <input class="search-input" type="text" name="cityName" placeholder="City name"/>
             <input type="submit" value="Search" id="btn-search"/>
         </form>
 
