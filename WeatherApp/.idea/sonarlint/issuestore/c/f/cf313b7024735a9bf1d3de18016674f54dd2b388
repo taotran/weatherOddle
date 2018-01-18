@@ -1,0 +1,8 @@
+
+ksquid:UselessImportCheck"BRemove this unused import 'javax.servlet.http.HttpServletRequest'.(ø©¹…8£šïÑ†,
+Qsquid:S1068"0Remove this unused "objectMapper" private field.(“»‚Šûÿÿÿÿ8ÐÚ»Í†,
+Ssquid:S1135"2Complete the task associated to this TODO comment.(æ•ëŸøÿÿÿÿ8§¡“Ñ†,
+squid:UselessImportCheck"QRemove this unused import 'org.springframework.web.bind.annotation.RequestParam'.(Â¬À·ùÿÿÿÿ8¬À³Ñ†,
+ksquid:UselessImportCheck"BRemove this unused import 'org.springframework.validation.Errors'.(Á·’±8´¹”Ñ†,
+~squid:UselessImportCheck"PRemove this unused import 'org.springframework.web.bind.annotation.RequestBody'.(â­½Àýÿÿÿÿ8ÅžäÑ†,
+Ssquid:S1135"2Complete the task associated to this TODO comment.(æ•ëŸøÿÿÿÿ8îÆÛÉ†,

@@ -1,0 +1,155 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<header>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500,400italic,500italic" type="text/css"/>
+    <!--<link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />-->
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Roboto, sans-serif;
+            color: #505050;
+        }
+
+        body a {
+            color: #d26c22;
+        }
+
+        .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+            padding: 8px;
+            line-height: 1.42857143;
+            vertical-align: top;
+            border-top: 1px solid #ddd;
+        }
+
+        .table, .table.table-bordered td {
+            font-size: 14px;
+        }
+
+        .table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        table {
+            max-width: 100%;
+            background-color: transparent;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        *, :after, :before {
+            box-sizing: border-box;
+        }
+
+        .badge {
+            display: inline-block;
+            min-width: 10px;
+            padding: 3px 7px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+            vertical-align: baseline;
+            white-space: nowrap;
+            text-align: center;
+            background-color: #999;
+            border-radius: 10px;
+        }
+    </style>
+</header>
+
+<body>
+<div style="width: 500px; margin: auto;">
+    <div style="width: 250px; margin: auto;">
+        <form id="search-form" th:action="@{/home/search}" method="post">
+            <input type="text" name="cityName" placeholder="City name"/>
+            <input type="submit" value="Search" id="btn-search"/>
+        </form>
+
+    </div>
+    <div id="forecast_list_ul">
+        <form action="#" th:object="${weatherLog}" th:action="@{/delete}">
+            <table class="table" id="search-table" th:if="${weatherLog != null}">
+                <tbody>
+                <tr>
+                    <td><img id="wl-icon" th:inline='text'
+                             th:src="@{'http://openweathermap.org/img/w/'+ ${weatherLog.icon} + '.png'}"/></td>
+                    <td>
+                        <b th:inline='text'><a th:href="@{'/city/' + ${weatherLog.city.id}}">
+                            [[${weatherLog.city.cityName}]], [[${weatherLog.city.country}]]</a></b>
+                        <img th:inline='text'
+                             th:src="@{'http://openweathermap.org/images/flags/' + ${#strings.toLowerCase(weatherLog.city.country)} + '.png' }"/>
+                        <b>
+                            <i th:inline='text'>[[${weatherLog.weatherDescription}]] </i>
+                        </b>
+
+                        <p th:inline='text'>
+                            <span class="badge badge-info">[[${weatherLog.temperature}]] &#176;F</span>
+                            temperature from [[${weatherLog.temperature}]] to [[${weatherLog.temperature}]]&#176;F, wind
+                            [[${weatherLog.windSpeed}]] m/s. clouds 0 %, 1014 hpa
+                        </p>
+
+                        <p>Geo coords <a th:inline='text' href="/weathermap?zoom=12&amp;lat=10.7758&amp;lon=106.7018">[10.7758,
+                            106.7018]</a>
+                        </p>
+                    </td>
+                    <td>
+                        <input type="submit" name="delete-button" value="Delete"/>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div th:if="${weatherLog == null}">
+                Search result is empty!
+            </div>
+
+            <form>
+                <a href="/home/showAll">Show all weather logs</a>
+                <table class="table" th:if="${allWls != null and not #lists.isEmpty(allWls)}">
+                    <tbody>
+                    <th:block th:each="wl : ${allWls}">
+                        <tr>
+                            <td><img th:inline='text'
+                                     th:src="@{'http://openweathermap.org/img/w/'+ ${wl.icon} + '.png'}"/>
+                            </td>
+                            <td>
+                                <b th:inline='text'><a th:href="@{'/city/' + ${wl.city.id}}">
+                                    [[${wl.city.cityName}]], [[${wl.city.country}]]</a></b>
+                                <img th:inline='text'
+                                     th:src="@{'http://openweathermap.org/images/flags/' + ${#strings.toLowerCase(wl.city.country)} + '.png' }"/>
+                                <b>
+                                    <i th:inline='text'> [[${wl.weatherDescription}]]</i>
+                                </b>
+
+                                <p th:inline='text'>
+                                    <span class="badge badge-info">[[${wl.temperature}]] &#176;F</span>
+                                    temperature from [[${wl.temperature}]] to [[${wl.temperature}]]&#176;F, wind
+                                    [[${wl.windSpeed}]] m/s. clouds 0 %
+                                </p>
+
+                                <p>Geo coords <a href="/weathermap?zoom=12&amp;lat=10.7758&amp;lon=106.7018">[10.7758,
+                                    106.7018]</a>
+                                </p>
+                            </td>
+                        </tr>
+                    </th:block>
+                    </tbody>
+                </table>
+            </form>
+
+            <p th:if="${allWls == null or #lists.isEmpty(allWls)}">NO RESULT</p>
+        </form>
+    </div>
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+
+wsquid:UselessImportCheck"NRemove this unused import 'org.springframework.web.util.UriComponentsBuilder'.(ßª»Ó8ïŽµ§†,
+osquid:UselessImportCheck"ARemove this unused import 'org.springframework.http.HttpHeaders'.(ãŸñ×úÿÿÿÿ8ïŽµ§†,
+isquid:UselessImportCheck"@Remove this unused import 'org.springframework.http.HttpEntity'.(ÂéŽÓ8ïŽµ§†,
+Qsquid:S1068"0Remove this unused "objectMapper" private field.(“»‚Šûÿÿÿÿ8—”ò§†,
+nsquid:UselessImportCheck"@Remove this unused import 'org.springframework.http.HttpMethod'.(Ê¨Ä¡øÿÿÿÿ8ïŸëÒ…,
+wsquid:UselessImportCheck"IRemove this unused import 'springfox.documentation.spring.web.json.Json'.(×Š„‹øÿÿÿÿ8µß»ü…,
+^squid:UselessImportCheck"0Remove this unused import 'org.json.JSONObject'.(œÖ´üþÿÿÿÿ8ïŽµ§†,

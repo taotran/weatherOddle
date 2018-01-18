@@ -1,0 +1,5 @@
+
+fsquid:UselessImportCheck"=Remove this unused import 'javax.validation.constraints.Min'.(ã¤½8ÎòšĞ†,
+]squid:UselessImportCheck"5Remove this unused import 'javax.persistence.Column'.(ìûæH8»ñ›Ğ†,
+osquid:UselessImportCheck"ARemove this unused import 'javax.validation.constraints.NotNull'.(áç¥ãüÿÿÿÿ8©º›Ğ†,
+csquid:S00107"AConstructor has 9 parameters, which is greater than 7 authorized.(ÆŞÙñøÿÿÿÿ8«¿Ğ†,
