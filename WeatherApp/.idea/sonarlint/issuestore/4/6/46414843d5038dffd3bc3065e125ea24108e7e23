@@ -1,6 +1,6 @@
 
-_squid:S00107"BConstructor has 12 parameters, which is greater than 7 authorized.(„·–è8´ß¾€†,
-Wsquid:S1948"6Make "additionalProperties" transient or serializable.(–ñ£ãüÿÿÿÿ8´ß¾€†,
-osquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(ˆ«‹Ğ8´ß¾€†,
-Esquid:S1948")Make "weather" transient or serializable.(”Ùİã8´ß¾€†,
-zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(–ñ£ãüÿÿÿÿ8´ß¾€†,
+Esquid:S1948")Make "weather" transient or serializable.(”Ùİã8Æ¶ËÅ,
+_squid:S00107"BConstructor has 12 parameters, which is greater than 7 authorized.(„·–è8Æ¶ËÅ,
+osquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(ˆ«‹Ğ8Æ¶ËÅ,
+zsquid:S2293"YReplace the type specification in this constructor call with the diamond operator ("<>").(–ñ£ãüÿÿÿÿ8Æ¶ËÅ,
+Wsquid:S1948"6Make "additionalProperties" transient or serializable.(–ñ£ãüÿÿÿÿ8Æ¶ËÅ,

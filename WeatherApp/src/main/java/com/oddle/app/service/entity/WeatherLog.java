@@ -40,6 +40,15 @@ public class WeatherLog extends AbstractEntity implements Serializable {
     @Column(name = "icon")
     private String icon;
 
+    @Column(name = "coordlon")
+    private double coordLon;
+
+    @Column(name = "coordlat")
+    private double coordLat;
+
+    @Column(name = "clouds")
+    private int clouds;
+
     @NotNull
     @ManyToOne
     @JoinColumn(name = "fk_city")
@@ -59,6 +68,8 @@ public class WeatherLog extends AbstractEntity implements Serializable {
         this.windSpeed = builder.windSpeed;
         this.humidity = builder.humidity;
         this.icon = builder.icon;
+        this.coordLon = builder.coordLon;
+        this.coordLat = builder.coordLat;
     }
 
     public Date getWeatherDate() {
@@ -93,6 +104,18 @@ public class WeatherLog extends AbstractEntity implements Serializable {
         return city;
     }
 
+    public double getCoordLon() {
+        return coordLon;
+    }
+
+    public double getCoordLat() {
+        return coordLat;
+    }
+
+    public int getClouds() {
+        return clouds;
+    }
+
     public static final class Builder {
 
         private Date weatherDate;
@@ -104,6 +127,11 @@ public class WeatherLog extends AbstractEntity implements Serializable {
         private double windSpeed;
         private double humidity;
         private String icon;
+
+        private int clouds = 0;
+
+        private double coordLon = 0d;
+        private double coordLat = 0d;
 
 
         public Builder(Date weatherDate, double temperature, City city) {
@@ -134,6 +162,21 @@ public class WeatherLog extends AbstractEntity implements Serializable {
 
         public Builder icon(String value) {
             this.icon = value;
+            return this;
+        }
+
+        public Builder coordLon(double value) {
+            this.coordLon = value;
+            return this;
+        }
+
+        public Builder coordLat(double value) {
+            this.coordLat = value;
+            return this;
+        }
+
+        public Builder clouds(int value) {
+            this.clouds = value;
             return this;
         }
 

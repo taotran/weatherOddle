@@ -1,31 +1,16 @@
 <html xmlns:th="http://www.thymeleaf.org">
 <header>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/weather.js" th:href="@{/js/weather.js}"></script>
     <script type="text/javascript">
-        function search() {
-            var url = "/home/search";
 
-            if ($('.search-input').val() != '') {
-                url = url + "/" + $('.search-input').val();
-            }
-
-            $("#resultsBlock").load(url);
-        }
-
-        function loadAll() {
-            var url = "/home/showAll";
-
-            $("#allWeatherBlock").load(url);
-        }
-
-        function deleteLog(id) {
-            var url = "/home/delete/" + id;
-
-            $("#allWeatherBlock").load(url);
-        }
+        $(document).ready(function() {
+           console.log("TEST MESSAGE 111");
+        });
 
     </script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500,400italic,500italic" type="text/css"/>
+    <link rel="stylesheet" href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}" />
     <!--<link rel="stylesheet" type="text/css" href="../css/bootstrap.css" />-->
     <style>
         body {
@@ -104,8 +89,8 @@
 <body>
 <div style="width: 500px; margin: auto;">
     <div style="width: 250px; margin: auto;">
-        <input class="search-input" type="text" name="cityName" placeholder="City name"/>
-        <button id="searchButton" onclick="search()">Search</button>
+        <input id="search-input" class="form-control mr-sm-2" style="height: 33px; width: 150px; float: left;"  type="text" name="cityName" placeholder="City name"/>
+        <button class="btn btn-sm btn-outline-secondary" id="searchButton" onclick="searchWeather()">Search</button>
 
     </div>
     <div id="forecast_list_ul" style="margin-top: 20px">

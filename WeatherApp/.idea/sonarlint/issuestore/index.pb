@@ -49,8 +49,6 @@ d
 4src/main/java/com/oddle/app/service/entity/City.java,f/b/fb03e1bccdf0511d4c726bd67dd4e1d9efc5e276
 }
 Msrc/main/java/com/oddle/app/exception/OpenWeatherRecordNotFoundException.java,0/0/002572f1be038282e52278380f572bd1841d16fc
-ƒ
-Ssrc/main/java/com/oddle/app/service/repository/WeatherInfoUnavailableException.java,f/d/fd4ea84f23749ed645274f5fcc7aa47cca622745
 m
 =src/main/java/com/oddle/app/controller/WeatherController.java,c/f/cf313b7024735a9bf1d3de18016674f54dd2b388
 v
@@ -63,3 +61,5 @@ Lsrc/main/java/com/oddle/app/service/entity/ajax/response/CityWeatherLog.java,d
 Ksrc/main/java/com/oddle/app/service/entity/ajax/request/SearchCriteria.java,0/d/0df015732e755288f0d8297e674a0077e99d6a20
 a
 1src/main/java/com/oddle/app/rest/WeatherRest.java,a/1/a173bc65ab6a9f9af1cce1243865e80d1fae5c7e
+z
+Jsrc/main/java/com/oddle/app/exception/WeatherInfoUnavailableException.java,5/e/5ecf35e7b1373649322d8abeea17597c8c0c73e6

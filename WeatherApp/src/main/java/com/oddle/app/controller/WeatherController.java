@@ -1,6 +1,5 @@
 package com.oddle.app.controller;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.oddle.app.service.WeatherLogService;
 import com.oddle.app.service.entity.WeatherLog;
 import com.oddle.app.service.entity.open.weather.OpenWeatherRecord;
@@ -10,7 +9,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.Assert;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.client.HttpClientErrorException;
@@ -47,7 +45,7 @@ public class WeatherController {
 
 
     @GetMapping("/home/search/{cityName}")
-    public String search1(@PathVariable String cityName, Model model) throws HttpClientErrorException {
+    public String search(@PathVariable String cityName, Model model) {
         Assert.notNull(cityName, "'cityName' must not be null!");
 
         final String requestUrl = String.format(WEATHER_BY_NAME, cityName, APP_ID);

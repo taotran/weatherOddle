@@ -24,17 +24,17 @@
                 <p th:inline='text'>
                     <span class="badge badge-info">[[${weatherLog.temperature}]] &#176;F</span>
                     temperature from [[${weatherLog.temperature}]] to [[${weatherLog.temperature}]]&#176;F, wind
-                    [[${weatherLog.windSpeed}]] m/s. clouds 0 %, 1014 hpa
+                    [[${weatherLog.windSpeed}]] m/s. clouds [[${weatherLog.clouds}]] %, 1014 hpa
                 </p>
 
-                <p>Geo coords <a th:inline='text' href="/weathermap?zoom=12&amp;lat=10.7758&amp;lon=106.7018">[10.7758,
-                    106.7018]</a>
+                <p>Geo coords <a th:inline='text' href="/weathermap?zoom=12&amp;lat=10.7758&amp;lon=106.7018">[[[${weatherLog.coordLon}]],
+                    [[${weatherLog.coordLat}]]]</a>
                 </p>
             </td>
         </tr>
         </tbody>
     </table>
-    <div th:if="${weatherLog == null}">
+    <div th:if="${weatherLog == null}" style="width: 250px; margin:auto;">
         Search result is empty!
     </div>
 </div>

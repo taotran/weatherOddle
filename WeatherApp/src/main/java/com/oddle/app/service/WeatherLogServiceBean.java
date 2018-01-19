@@ -1,10 +1,10 @@
 package com.oddle.app.service;
 
+import com.oddle.app.exception.WeatherInfoUnavailableException;
 import com.oddle.app.service.entity.City;
 import com.oddle.app.service.entity.WeatherLog;
 import com.oddle.app.service.entity.open.weather.OpenWeatherRecord;
 import com.oddle.app.service.entity.open.weather.Weather;
-import com.oddle.app.exception.WeatherInfoUnavailableException;
 import com.oddle.app.service.repository.WeatherLogRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -54,7 +54,12 @@ public class WeatherLogServiceBean extends EntityServiceBean<WeatherLog> impleme
                         .weatherDescription(owrWeather.getDescription())
                         .humidity(owr.getMain().getHumidity())
                         .icon(owrWeather.getIcon())
-                .build();
+                        .windSpeed(owr.getWind().getSpeed())
+                        .clouds(owr.getClouds().getAll())
+                        .coordLon(owr.getCoord().getLon())
+                        .coordLat(owr.getCoord().getLat())
+                        .build();
+
 
         logger.info("### weatherLog is being persisted...");
 
