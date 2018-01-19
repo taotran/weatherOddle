@@ -9,7 +9,7 @@ server:
 ###
 spring:
   datasource:
-    url: jdbc:h2:~/weatherApp;MV_STORE=FALSE;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:~/weatherApp;MV_STORE=TRUE;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     platform: h2
     username: sa
     password:

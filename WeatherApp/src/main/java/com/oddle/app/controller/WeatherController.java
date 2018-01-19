@@ -29,17 +29,14 @@ public class WeatherController {
     private static final String APP_ID = "210dd7faafb2b8447d2e6cd87249bebb";
     private static final String WEATHER_BY_NAME = "https://api.openweathermap.org/data/2.5/weather?q=%s&APPID=%s";
     private final RestTemplate restTemplate;
-    private final ObjectMapper objectMapper;
     private final WeatherLogService weatherLogService;
 
     @Autowired
-    public WeatherController(@Qualifier("restTemplate") RestTemplate restTemplate, ObjectMapper objectMapper, WeatherLogService weatherLogService) {
+    public WeatherController(@Qualifier("restTemplate") RestTemplate restTemplate, WeatherLogService weatherLogService) {
         Assert.notNull(restTemplate, "'restTemplate' must not be null!");
-        Assert.notNull(objectMapper, "'objectMapper' must not be null!");
         Assert.notNull(weatherLogService, "'weatherLogService' must not be null!");
 
         this.restTemplate = restTemplate;
-        this.objectMapper = objectMapper;
         this.weatherLogService = weatherLogService;
     }
 
@@ -48,26 +45,6 @@ public class WeatherController {
         return "home";
     }
 
-//    @PostMapping("/home/search")
-//    public String search(String cityName, Model model) throws HttpClientErrorException {
-//        Assert.notNull(cityName, "'cityName' must not be null!");
-//
-//        final String requestUrl = String.format(WEATHER_BY_NAME, cityName, APP_ID);
-//        OpenWeatherRecord weatherRecord = null;
-//
-//        try {
-//            weatherRecord = restTemplate.getForObject(requestUrl, OpenWeatherRecord.class);
-//        } catch (HttpClientErrorException e) {
-//            if (e.getStatusCode() != HttpStatus.NOT_FOUND)
-//                throw e;
-//        }
-//
-//        final WeatherLog weatherLog = weatherLogService.saveOpenWeatherRecord(weatherRecord);
-//
-//
-//        model.addAttribute("weatherLog", weatherLog);
-//        return "home";
-//    }
 
     @GetMapping("/home/search/{cityName}")
     public String search1(@PathVariable String cityName, Model model) throws HttpClientErrorException {
