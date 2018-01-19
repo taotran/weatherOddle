@@ -10,15 +10,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.Assert;
-import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
@@ -51,8 +48,29 @@ public class WeatherController {
         return "home";
     }
 
-    @PostMapping("/home/search")
-    public String search(String cityName, Model model) throws HttpClientErrorException {
+//    @PostMapping("/home/search")
+//    public String search(String cityName, Model model) throws HttpClientErrorException {
+//        Assert.notNull(cityName, "'cityName' must not be null!");
+//
+//        final String requestUrl = String.format(WEATHER_BY_NAME, cityName, APP_ID);
+//        OpenWeatherRecord weatherRecord = null;
+//
+//        try {
+//            weatherRecord = restTemplate.getForObject(requestUrl, OpenWeatherRecord.class);
+//        } catch (HttpClientErrorException e) {
+//            if (e.getStatusCode() != HttpStatus.NOT_FOUND)
+//                throw e;
+//        }
+//
+//        final WeatherLog weatherLog = weatherLogService.saveOpenWeatherRecord(weatherRecord);
+//
+//
+//        model.addAttribute("weatherLog", weatherLog);
+//        return "home";
+//    }
+
+    @GetMapping("/home/search/{cityName}")
+    public String search1(@PathVariable String cityName, Model model) throws HttpClientErrorException {
         Assert.notNull(cityName, "'cityName' must not be null!");
 
         final String requestUrl = String.format(WEATHER_BY_NAME, cityName, APP_ID);
@@ -67,10 +85,8 @@ public class WeatherController {
 
         final WeatherLog weatherLog = weatherLogService.saveOpenWeatherRecord(weatherRecord);
 
-        //TODO: using ajax solution
-
         model.addAttribute("weatherLog", weatherLog);
-        return "home";
+        return "result/search_result_fragment :: resultFragment";
     }
 
     @GetMapping("/home/showAll")
@@ -78,10 +94,21 @@ public class WeatherController {
 
         final List<WeatherLog> allWeatherLogs = weatherLogService.findAllGroupByCityName();
 
-        //TODO: using ajax solution
         model.addAttribute("allWls", allWeatherLogs);
 
-        return "home";
+        return "result/show_all_weather_fragment :: allWeatherFragment";
+    }
+
+    @GetMapping("/home/delete/{weatherId}")
+    public String delete(@PathVariable long weatherId, Model model) {
+
+        weatherLogService.delete(weatherId);
+
+        final List<WeatherLog> allWeatherLogs = weatherLogService.findAllGroupByCityName();
+
+        model.addAttribute("allWls", allWeatherLogs);
+
+        return "result/show_all_weather_fragment :: allWeatherFragment";
     }
 
 }

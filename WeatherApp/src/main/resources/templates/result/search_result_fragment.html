@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+</head>
+
+<body>
+<div th:fragment="resultFragment">
+    <table class="table" id="search-table" th:if="${weatherLog != null}">
+        <tbody>
+        <tr>
+            <td><img id="wl-icon" th:inline='text'
+                     th:src="@{'http://openweathermap.org/img/w/'+ ${weatherLog.icon} + '.png'}"/></td>
+            <td>
+                <b th:inline='text'><a th:href="@{'/city/' + ${weatherLog.city.id}}">
+                    [[${weatherLog.city.cityName}]], [[${weatherLog.city.country}]]</a></b>
+                <img th:inline='text'
+                     th:src="@{'http://openweathermap.org/images/flags/' + ${#strings.toLowerCase(weatherLog.city.country)} + '.png' }"/>
+                <b>
+                    <i th:inline='text'>[[${weatherLog.weatherDescription}]] </i>
+                </b>
+
+                <p th:inline='text'>
+                    <span class="badge badge-info">[[${weatherLog.temperature}]] &#176;F</span>
+                    temperature from [[${weatherLog.temperature}]] to [[${weatherLog.temperature}]]&#176;F, wind
+                    [[${weatherLog.windSpeed}]] m/s. clouds 0 %, 1014 hpa
+                </p>
+
+                <p>Geo coords <a th:inline='text' href="/weathermap?zoom=12&amp;lat=10.7758&amp;lon=106.7018">[10.7758,
+                    106.7018]</a>
+                </p>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div th:if="${weatherLog == null}">
+        Search result is empty!
+    </div>
+</div>
+</body>
+</html>

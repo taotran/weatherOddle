@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Show All Weather Flagment</title>
+</head>
+<body>
+<div th:fragment="allWeatherFragment">
+    <table class="table" th:if="${allWls != null and not #lists.isEmpty(allWls)}">
+        <tbody>
+        <th:block th:each="wl : ${allWls}">
+            <tr>
+                <td><img th:inline='text'
+                         th:src="@{'http://openweathermap.org/img/w/'+ ${wl.icon} + '.png'}"/>
+                </td>
+                <td>
+                    <b th:inline='text'><a th:href="@{'/city/' + ${wl.city.id}}">
+                        [[${wl.city.cityName}]], [[${wl.city.country}]]</a></b>
+                    <img th:inline='text'
+                         th:src="@{'http://openweathermap.org/images/flags/' + ${#strings.toLowerCase(wl.city.country)} + '.png' }"/>
+                    <b>
+                        <i th:inline='text'> [[${wl.weatherDescription}]]</i>
+                    </b>
+
+                    <p th:inline='text'>
+                        <span class="badge badge-info">[[${wl.temperature}]] &#176;F</span>
+                        temperature from [[${wl.temperature}]] to [[${wl.temperature}]]&#176;F, wind
+                        [[${wl.windSpeed}]] m/s. clouds 0 %
+                    </p>
+
+                    <p>Geo coords <a href="/weathermap?zoom=12&amp;lat=10.7758&amp;lon=106.7018">[10.7758,
+                        106.7018]</a>
+                    </p>
+                </td>
+                <td>
+                    <a href="#" th:onclick="'deleteLog('+ ${wl.id} + ');'">Clear</a>
+
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+    <p th:if="${allWls == null or #lists.isEmpty(allWls)}">NO RESULT</p>
+</div>
+</body>
+</html>

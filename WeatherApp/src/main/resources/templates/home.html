@@ -2,7 +2,27 @@
 <header>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript">
+        function search() {
+            var url = "/home/search";
 
+            if ($('.search-input').val() != '') {
+                url = url + "/" + $('.search-input').val();
+            }
+
+            $("#resultsBlock").load(url);
+        }
+
+        function loadAll() {
+            var url = "/home/showAll";
+
+            $("#allWeatherBlock").load(url);
+        }
+
+        function deleteLog(id) {
+            var url = "/home/delete/" + id;
+
+            $("#allWeatherBlock").load(url);
+        }
 
     </script>
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500,400italic,500italic" type="text/css"/>
@@ -84,83 +104,26 @@
 <body>
 <div style="width: 500px; margin: auto;">
     <div style="width: 250px; margin: auto;">
-        <form id="search-form" th:action="@{/home/search}" method="post">
-            <input class="search-input" type="text" name="cityName" placeholder="City name"/>
-            <input type="submit" value="Search" id="btn-search"/>
-        </form>
+        <input class="search-input" type="text" name="cityName" placeholder="City name"/>
+        <button id="searchButton" onclick="search()">Search</button>
 
     </div>
-    <div id="forecast_list_ul">
+    <div id="forecast_list_ul" style="margin-top: 20px">
+
+        <div id="resultsBlock">
+            <!-- Ajax results will be injected here!!! -->
+        </div>
+
         <form action="#" th:object="${weatherLog}" th:action="@{/delete}">
-            <table class="table" id="search-table" th:if="${weatherLog != null}">
-                <tbody>
-                <tr>
-                    <td><img id="wl-icon" th:inline='text'
-                             th:src="@{'http://openweathermap.org/img/w/'+ ${weatherLog.icon} + '.png'}"/></td>
-                    <td>
-                        <b th:inline='text'><a th:href="@{'/city/' + ${weatherLog.city.id}}">
-                            [[${weatherLog.city.cityName}]], [[${weatherLog.city.country}]]</a></b>
-                        <img th:inline='text'
-                             th:src="@{'http://openweathermap.org/images/flags/' + ${#strings.toLowerCase(weatherLog.city.country)} + '.png' }"/>
-                        <b>
-                            <i th:inline='text'>[[${weatherLog.weatherDescription}]] </i>
-                        </b>
-
-                        <p th:inline='text'>
-                            <span class="badge badge-info">[[${weatherLog.temperature}]] &#176;F</span>
-                            temperature from [[${weatherLog.temperature}]] to [[${weatherLog.temperature}]]&#176;F, wind
-                            [[${weatherLog.windSpeed}]] m/s. clouds 0 %, 1014 hpa
-                        </p>
-
-                        <p>Geo coords <a th:inline='text' href="/weathermap?zoom=12&amp;lat=10.7758&amp;lon=106.7018">[10.7758,
-                            106.7018]</a>
-                        </p>
-                    </td>
-                    <td>
-                        <input type="submit" name="delete-button" value="Delete"/>
-                    </td>
-                </tr>
-                </tbody>
-            </table>
-            <div th:if="${weatherLog == null}">
-                Search result is empty!
-            </div>
 
             <form>
-                <a href="/home/showAll">Show all weather logs</a>
-                <table class="table" th:if="${allWls != null and not #lists.isEmpty(allWls)}">
-                    <tbody>
-                    <th:block th:each="wl : ${allWls}">
-                        <tr>
-                            <td><img th:inline='text'
-                                     th:src="@{'http://openweathermap.org/img/w/'+ ${wl.icon} + '.png'}"/>
-                            </td>
-                            <td>
-                                <b th:inline='text'><a th:href="@{'/city/' + ${wl.city.id}}">
-                                    [[${wl.city.cityName}]], [[${wl.city.country}]]</a></b>
-                                <img th:inline='text'
-                                     th:src="@{'http://openweathermap.org/images/flags/' + ${#strings.toLowerCase(wl.city.country)} + '.png' }"/>
-                                <b>
-                                    <i th:inline='text'> [[${wl.weatherDescription}]]</i>
-                                </b>
-
-                                <p th:inline='text'>
-                                    <span class="badge badge-info">[[${wl.temperature}]] &#176;F</span>
-                                    temperature from [[${wl.temperature}]] to [[${wl.temperature}]]&#176;F, wind
-                                    [[${wl.windSpeed}]] m/s. clouds 0 %
-                                </p>
-
-                                <p>Geo coords <a href="/weathermap?zoom=12&amp;lat=10.7758&amp;lon=106.7018">[10.7758,
-                                    106.7018]</a>
-                                </p>
-                            </td>
-                        </tr>
-                    </th:block>
-                    </tbody>
-                </table>
+                <div style="width: 250px; margin:auto; font-family: 'Courier New';">
+                    <a style="margin:auto;" href="#" onclick="loadAll()">Show all weather logs</a>
+                </div>
+                <div id="allWeatherBlock">
+                    <!-- Ajax results will be injected here!!! -->
+                </div>
             </form>
-
-            <p th:if="${allWls == null or #lists.isEmpty(allWls)}">NO RESULT</p>
         </form>
     </div>
 </div>
