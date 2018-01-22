@@ -27,8 +27,8 @@
                     [[${weatherLog.windSpeed}]] m/s. clouds [[${weatherLog.clouds}]] %, 1014 hpa
                 </p>
 
-                <p>Geo coords <a th:inline='text' href="/weathermap?zoom=12&amp;lat=10.7758&amp;lon=106.7018">[[[${weatherLog.coordLon}]],
-                    [[${weatherLog.coordLat}]]]</a>
+                <p th:inline='text'>Geo coords <a href="/weathermap?zoom=12&amp;lat=10.7758&amp;lon=106.7018">[ [[${weatherLog.coordLon}]],
+                    [[${weatherLog.coordLat}]] ]</a>
                 </p>
             </td>
         </tr>
