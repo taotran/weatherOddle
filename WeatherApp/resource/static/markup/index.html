@@ -1,0 +1,149 @@
+<html>
+<header>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="js/weather.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            console.log("TEST MESSAGE 111");
+        });
+
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500,400italic,500italic" type="text/css"/>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link href="http://getbootstrap.com/docs/4.0/examples/offcanvas/offcanvas.css" rel="stylesheet"/>
+
+    <style>
+        .text-dark-orange {
+            color: #d26c22;
+        }
+
+    </style>
+</header>
+
+<body class="bg-dark">
+<!-- NAVIGATION -->
+<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">Weather Now!</a>
+    <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse offcanvas-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Dashboard <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="#">Notifications</a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="http://example.com" id="dropdown01" data-toggle="dropdown"
+                   aria-haspopup="true" aria-expanded="false">Settings</a>
+                <div class="dropdown-menu" aria-labelledby="dropdown01">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </li>
+        </ul>
+        <form class="form-inline my-2 my-lg-0">
+            <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+    </div>
+</nav>
+
+<!-- MAIN -->
+<main role="main" class="container">
+
+    <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
+        <img class="mr-3" src="https://getbootstrap.com/assets/brand/bootstrap-outline.svg" alt="" width="48"
+             height="48">
+        <div class="lh-100">
+            <h6 class="mb-0 text-white lh-100">Bootstrap</h6>
+            <small>Since 2011</small>
+        </div>
+        <div class="my-2 my-lg-0">
+            Search bar here
+        </div>
+    </div>
+
+    <div class="my-3 p-3 bg-white rounded box-shadow">
+        <div class="media text-muted pt-3">
+            <img alt="64x64" class="mr-4 rounded" style="width: 64px; height: 64px;"
+                 src="http://openweathermap.org/img/w/04d.png" data-holder-rendered="true">
+            <p class="media-body pb-3 mb-0 small lh-125">
+                <strong class="d-block text-gray-dark">@username</strong>
+                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
+                condimentum nibh, ut fermentum massa justo sit amet risus.
+            </p>
+        </div>
+    </div>
+
+    <div class="my-3 p-3 bg-white rounded box-shadow">
+        <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
+        <div class="media text-muted pt-3">
+            <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="42x42"
+                 class="mr-4 rounded" style="width: 42px; height: 42px;" src="http://openweathermap.org/img/w/04d.png"
+                 data-holder-rendered="true">
+            <div>
+                <p class="media-body pb-3 mb-0 small lh-125">
+                    <strong class="d-block text-gray-dark"><b><a class="text-dark-orange" href="/city/3">
+                        Shanghai, CN</a></b> <img src="http://openweathermap.org/images/flags/cn.png"><b>
+                        <i>broken clouds </i>
+                    </b></strong>
+                    <span class="badge badge-info">281.67 °F</span> temperature from 281.67 to 281.67°F, wind
+                    2.0 m/s. clouds 0 %, 1014 hpa.
+                </p>
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">Geo coords <a
+                        href="/weathermap?zoom=12&amp;lat=10.7758&amp;lon=106.7018">[ 121.49,
+                    31.23 ]</a></p>
+            </div>
+        </div>
+
+        <div class="media text-muted pt-3">
+            <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="42x42"
+                 class="mr-4 rounded" style="width: 42px; height: 42px;" src="http://openweathermap.org/img/w/04d.png"
+                 data-holder-rendered="true">
+            <div>
+                <p class="media-body pb-3 mb-0 small lh-125">
+                    <strong class="d-block text-gray-dark"><b><a class="text-dark-orange" href="/city/3">
+                        Hanoi, VN</a></b> <img src="http://openweathermap.org/images/flags/vn.png"><b>
+                        <i>mist </i>
+                    </b></strong>
+                    <span class="badge badge-info">295.15 °F</span> temperature from 295.15 to 295.15°F, wind 3.6 m/s.
+                    clouds 0 %
+                </p>
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">Geo coords <a
+                        href="/weathermap?zoom=12&amp;lat=10.7758&amp;lon=106.7018">[ 121.49,
+                    31.23 ]</a></p>
+            </div>
+        </div>
+        <div class="media text-muted pt-3">
+            <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="42x42"
+                 class="mr-4 rounded" style="width: 42px; height: 42px;" src="http://openweathermap.org/img/w/04d.png"
+                 data-holder-rendered="true">
+            <div>
+                <p class="media-body pb-3 mb-0 small lh-125">
+                    <strong class="d-block text-gray-dark"><b><a class="text-dark-orange" href="/city/3">
+                        London, GB</a></b> <img src="http://openweathermap.org/images/flags/gb.png"><b>
+                        <i>overcast clouds </i>
+                    </b></strong>
+                    <span class="badge badge-info">281.67 °F</span> temperature from 281.67 to 281.67°F, wind
+                    2.0 m/s. clouds 0 %, 1014 hpa.
+                </p>
+                <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">Geo coords <a
+                        href="/weathermap?zoom=12&amp;lat=10.7758&amp;lon=106.7018">[ 121.49,
+                    31.23 ]</a></p>
+            </div>
+        </div>
+        <small class="d-block text-right mt-3">
+            <a href="#">Show more...</a>
+        </small>
+    </div>
+
+
+</main>
+</body>
+</html>
