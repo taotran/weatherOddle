@@ -1,0 +1,149 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<header>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="/js/weather.js" th:href="@{/js/weather.js}"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+            console.log("TEST MESSAGE 111");
+        });
+
+    </script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500,400italic,500italic" type="text/css"/>
+    <link rel="stylesheet" href="/css/bootstrap.css" th:href="@{/css/bootstrap.css}"/>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Roboto, sans-serif;
+            color: #505050;
+        }
+
+        body a {
+            color: #d26c22;
+        }
+
+        .table > tbody > tr > td, .table > tbody > tr > th, .table > tfoot > tr > td, .table > tfoot > tr > th, .table > thead > tr > td, .table > thead > tr > th {
+            padding: 8px;
+            line-height: 1.42857143;
+            vertical-align: top;
+            border-top: 1px solid #ddd;
+        }
+
+        .table, .table.table-bordered td {
+            font-size: 14px;
+        }
+
+        .table {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        table {
+            max-width: 100%;
+            background-color: transparent;
+        }
+
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+        }
+
+        *, :after, :before {
+            box-sizing: border-box;
+        }
+
+        .badge {
+            display: inline-block;
+            min-width: 10px;
+            padding: 3px 7px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+            vertical-align: baseline;
+            white-space: nowrap;
+            text-align: center;
+            background-color: #999;
+            border-radius: 10px;
+        }
+
+        .search-input {
+            /*display: inline-block;*/
+            min-width: 10px;
+            padding: 3px 7px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #fff;
+            line-height: 1;
+            vertical-align: baseline;
+            white-space: nowrap;
+            text-align: center;
+            background-color: #999;
+            border-radius: 10px;
+        }
+    </style>
+</header>
+
+<body>
+<div class="container">
+    <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+            <a class="navbar-brand" href="#">Carousel</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
+                    aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Link</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" href="#">Disabled</a>
+                    </li>
+                </ul>
+                <form class="form-inline mt-2 mt-md-0">
+                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search"/>
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </nav>
+    </header>
+
+
+
+</div>
+
+<div style="width: 500px; margin: auto;">
+    <div style="width: 250px; margin: auto;">
+        <input id="search-input" class="form-control mr-sm-2" style="height: 33px; width: 150px; float: left;"
+               type="text" name="cityName" placeholder="City name"/>
+        <button class="btn btn-sm btn-outline-secondary" id="searchButton" onclick="searchWeather()">Search</button>
+
+    </div>
+    <div id="forecast_list_ul" style="margin-top: 20px">
+
+        <div id="resultsBlock">
+            <!-- Ajax results will be injected here!!! -->
+        </div>
+
+        <form action="#" th:object="${weatherLog}" th:action="@{/delete}">
+
+            <form>
+                <div style="width: 250px; margin:auto; font-family: 'Courier New';">
+                    <a style="margin:auto;" href="#" onclick="loadAll()">Show all weather logs</a>
+                </div>
+                <div id="allWeatherBlock">
+                    <!-- Ajax results will be injected here!!! -->
+                </div>
+            </form>
+        </form>
+    </div>
+</div>
+</body>
+
+</html>

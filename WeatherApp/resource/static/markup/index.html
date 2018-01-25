@@ -1,29 +1,36 @@
 <html>
 <header>
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="js/weather.js"></script>
-    <script type="text/javascript">
 
-        $(document).ready(function () {
-            console.log("TEST MESSAGE 111");
-        });
+    <!--<script src="js/alert.js"></script>-->
+    <!--<script src="js/button.js"></script>-->
+    <!--<script src="js/carousel.js"></script>-->
+    <!--<script src="js/collapse.js"></script>-->
+    <!--<script src="js/tooltip.js"></script>-->
+    <!--<script src="js/popper.min.js"></script>-->
+    <!--<script src="js/dropdown.js"></script>-->
+    <!--<script src="js/index.js"></script>-->
+    <!--<script src="js/modal.js"></script>-->
+    <!--<script src="js/popover.js"></script>-->
+    <!--<script src="js/scrollspy.js"></script>-->
+    <!--<script src="js/tab.js"></script>-->
 
-    </script>
+    <!--<script src="js/util.js"></script>-->
+
+
+
     <link href="https://fonts.googleapis.com/css?family=Roboto:400,700,500,400italic,500italic" type="text/css"/>
     <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/weather.css"/>
     <link href="http://getbootstrap.com/docs/4.0/examples/offcanvas/offcanvas.css" rel="stylesheet"/>
-
-    <style>
-        .text-dark-orange {
-            color: #d26c22;
-        }
-
-    </style>
 </header>
 
 <body class="bg-dark">
+
 <!-- NAVIGATION -->
-<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark">
+<nav class="navbar navbar-expand-md fixed-top navbar-dark bg-dark navbar-inner">
     <a class="navbar-brand" href="#">Weather Now!</a>
     <button class="navbar-toggler p-0 border-0" type="button" data-toggle="offcanvas">
         <span class="navbar-toggler-icon"></span>
@@ -58,14 +65,11 @@
 <main role="main" class="container">
 
     <div class="d-flex align-items-center p-3 my-3 text-white-50 bg-purple rounded box-shadow">
-        <img class="mr-3" src="https://getbootstrap.com/assets/brand/bootstrap-outline.svg" alt="" width="48"
-             height="48">
+        <img class="mr-3" src="https://getbootstrap.com/assets/brand/bootstrap-outline.svg" alt="" width="64"
+             height="64">
         <div class="lh-100">
             <h6 class="mb-0 text-white lh-100">Bootstrap</h6>
             <small>Since 2011</small>
-        </div>
-        <div class="my-2 my-lg-0">
-            Search bar here
         </div>
     </div>
 
@@ -73,18 +77,26 @@
         <div class="media text-muted pt-3">
             <img alt="64x64" class="mr-4 rounded" style="width: 64px; height: 64px;"
                  src="http://openweathermap.org/img/w/04d.png" data-holder-rendered="true">
-            <p class="media-body pb-3 mb-0 small lh-125">
-                <strong class="d-block text-gray-dark">@username</strong>
-                Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris
-                condimentum nibh, ut fermentum massa justo sit amet risus.
-            </p>
+            <div>
+                <p class="media-body pb-3 mb-0 small lh-125">
+                    <strong class="d-block text-gray-dark"><b><a class="text-dark-orange" href="/city/3">
+                        Shanghai, CN</a></b> <img src="http://openweathermap.org/images/flags/cn.png"><b>
+                        <i>broken clouds </i>
+                    </b></strong>
+                    <span class="badge badge-info">281.67 &#176;F</span> temperature from 281.67 to 281.67&#176;F, wind
+                    2.0 m/s. clouds 0 %, 1014 hpa.
+                </p>
+                <p class="media-body pb-3 mb-0 small lh-125">Geo coords <a
+                        href="/weathermap?zoom=12&amp;lat=10.7758&amp;lon=106.7018">[ 121.49,
+                    31.23 ]</a></p>
+            </div>
         </div>
     </div>
 
     <div class="my-3 p-3 bg-white rounded box-shadow">
         <h6 class="border-bottom border-gray pb-2 mb-0">Recent updates</h6>
         <div class="media text-muted pt-3">
-            <img data-src="holder.js/32x32?theme=thumb&amp;bg=007bff&amp;fg=007bff&amp;size=1" alt="42x42"
+            <img alt="42x42"
                  class="mr-4 rounded" style="width: 42px; height: 42px;" src="http://openweathermap.org/img/w/04d.png"
                  data-holder-rendered="true">
             <div>
@@ -93,7 +105,7 @@
                         Shanghai, CN</a></b> <img src="http://openweathermap.org/images/flags/cn.png"><b>
                         <i>broken clouds </i>
                     </b></strong>
-                    <span class="badge badge-info">281.67 °F</span> temperature from 281.67 to 281.67°F, wind
+                    <span class="badge badge-info">281.67 &#176;F</span> temperature from 281.67 to 281.67&#176;F, wind
                     2.0 m/s. clouds 0 %, 1014 hpa.
                 </p>
                 <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">Geo coords <a
@@ -112,7 +124,7 @@
                         Hanoi, VN</a></b> <img src="http://openweathermap.org/images/flags/vn.png"><b>
                         <i>mist </i>
                     </b></strong>
-                    <span class="badge badge-info">295.15 °F</span> temperature from 295.15 to 295.15°F, wind 3.6 m/s.
+                    <span class="badge badge-info">295.15 &#176;F</span> temperature from 295.15 to 295.15&#176;F, wind 3.6 m/s.
                     clouds 0 %
                 </p>
                 <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">Geo coords <a
@@ -130,7 +142,7 @@
                         London, GB</a></b> <img src="http://openweathermap.org/images/flags/gb.png"><b>
                         <i>overcast clouds </i>
                     </b></strong>
-                    <span class="badge badge-info">281.67 °F</span> temperature from 281.67 to 281.67°F, wind
+                    <span class="badge badge-info">281.67 &#176;F</span> temperature from 281.67 to 281.67&#176;F, wind
                     2.0 m/s. clouds 0 %, 1014 hpa.
                 </p>
                 <p class="media-body pb-3 mb-0 small lh-125 border-bottom border-gray">Geo coords <a
@@ -145,5 +157,8 @@
 
 
 </main>
+<script src="https://getbootstrap.com/assets/js/vendor/popper.min.js"></script>
+<script src="https://getbootstrap.com/assets/js/vendor/holder.min.js"></script>
+<script src="https://getbootstrap.com/docs/4.0/examples/offcanvas/offcanvas.js"></script>
 </body>
 </html>
